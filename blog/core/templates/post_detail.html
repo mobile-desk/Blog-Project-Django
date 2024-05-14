@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center mt-4">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <p>Published by {{ post.author }} on {{ post.published_date }}</p>
+    <a href="{% url 'post_edit' post.pk %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
+</div>
+{% endblock %}

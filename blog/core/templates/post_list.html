@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Blog Posts</h1>
+    {% if object_list %}
+        <ul>
+            {% for post in object_list %}
+
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">By: {{ post.author }}</h6>
+                        <p class="card-text">Published on {{ post.published_date }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts available.</p>
+        <a href="{% url 'post_new' %}"><buttonn>Create new post</button></a>
+    {% endif %}
+
+{% endblock %}
